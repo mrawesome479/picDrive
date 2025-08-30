@@ -14,7 +14,7 @@ import ArrowLeft from "../assets/arrowRight.png";
 const MainUI = () => {
   const { folders, selectedFolderId, selectFolder, handleImageUpload } =
     useFolder();
-  const { query, results } = useSearch();
+  const { query, results, setResults } = useSearch();
   const { user } = useContext(AuthContext);
   const [images, setImages] = useState([]);
   const fileInputRef = useRef(null);
@@ -82,6 +82,7 @@ const MainUI = () => {
         }
       );
       setImages((prev) => prev.filter((img) => img._id !== imageId));
+      setResults((prev) => prev.filter((img) => img._id !== imageId));
       toast.success("Image deleted successfully!");
     } catch {
       if (error.response && error.response?.data?.error) {
