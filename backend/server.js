@@ -13,12 +13,10 @@ const app = express();
 
 const PORT = process.env.PORT
 
-
 const allowedOrigins = [
-  "http://localhost:5173",       
-  "https://pic-drive-kappa.vercel.app/" 
+  "http://localhost:5173",         
+  "https://pic-drive-kappa.vercel.app" 
 ];
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,7 +32,6 @@ app.use(
     credentials: true,
   })
 );
-
 
 
 app.use("/api/auth", authRoutes);
