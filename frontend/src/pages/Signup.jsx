@@ -19,7 +19,6 @@ export default function Signup() {
   };
 
   const handleSubmit = async (e) => {
-    console.log(form);
     e.preventDefault();
     if (!form.username || form.username.length < 3) {
       toast.error("username must be at least 3 characters");
