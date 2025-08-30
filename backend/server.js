@@ -15,7 +15,7 @@ const PORT = process.env.PORT
 
 const allowedOrigins = [
   "http://localhost:5173",         
-  "https://pic-drive-kappa.vercel.app/" 
+  "https://pic-drive-kappa.vercel.app" 
 ];
 
 app.use(express.json());
