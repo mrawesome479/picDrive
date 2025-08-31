@@ -1,5 +1,7 @@
 const Folder = require("../models/Folder");
+const Image = require("../models/Image")
 const cloudinary = require("../Utils/cloudinary")
+
 
 
 const createFolder = async (req, res) => {
@@ -44,6 +46,7 @@ const deleteFolders = async (req, res) => {
     const idsToDelete = getAllChildIds(allFolders, folderId);
 
     await Folder.deleteMany({ _id: { $in: idsToDelete } });
+    await Image.deleteMany({ folderId: { $in: idsToDelete } });
     res
       .status(200)
       .json({
